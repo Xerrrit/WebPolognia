@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HYML Main</title>
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+<body>
+    <div id="header-placeholder"></div>
+    
+    
+    <main>
+        <h1>Items:</h1>
+        <div class ="products">
+            <div class = "window_product">
+                <h2>Price</h2>
+                <div class="product"><img src="../product_img/img1.jpg" alt="Product Image"></div>
+                <h2>Product 1</h2>
+                <button>Add to cart</button>
+            </div>
+
+            <div class="window_product">
+                <h2>Price</h2>
+                <div class="product"><img src="../product_img/img1.jpg" alt="Product Image"></div>
+                <h2>Product 1</h2>
+                <button>Add to cart</button>
+            </div>
+
+            <div class="window_product">
+                <h2>Price</h2>
+                <div class="product"><img src="../product_img/img1.jpg" alt="Product Image"></div>
+                <h2>Product 1</h2>
+                <button>Add to cart</button>
+            </div>
+
+            <div class="window_product">
+                <h2>Price</h2>
+                <div class="product"><img src="../product_img/img1.jpg" alt="Product Image"></div>
+                <h2>Product 1</h2>
+                <button>Add to cart</button>
+            </div>
+        </div>
+    </main>
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+    
+</html>
