@@ -68,7 +68,7 @@ export async function login(req, res) {
   );
 
   res.json({
-    message: "Logineuh OK",
+    message: "Logineuh OK.",
     token,
     nickname: user.nickname,
     role: user.role,
