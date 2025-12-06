@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>HYML Main</title>
+        <title>Main</title>
         <link rel="stylesheet" href="../css/styles.css">
     </head>
     <body>
@@ -40,7 +40,9 @@
                         const item = document.createElement("div");
                         item.innerHTML = `
                             <div class="window_product">
-                            <h2>${product.name}</h2>
+                            <h2>
+                                    <a href="product.html?id=${product.id}">${product.name}</a>
+                                </h2>
                             <img src="${product.image}" width="150">
                             <p>Price: ${product.price}€</p>
                             <p>${product.description}</p>

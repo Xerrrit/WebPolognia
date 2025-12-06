@@ -3,16 +3,7 @@ body {
     margin: 20px;
     background-color: white;
     color: black;
-}
-
-header {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    margin-top: 150px;
 }
 
 main {
@@ -21,10 +12,31 @@ main {
     padding-bottom: 10px;
 }
 
-nav a {
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    padding: 15px 20px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    gap: 21%;
+}
+
+header nav a {
     text-decoration: none;
     color: black;
-    margin: 10px;
+}
+
+header nav a img {
+    width: 40px;
+    height: 40px;
 }
 
 h1 {
@@ -36,7 +48,6 @@ h2 {
     color: black;
 }
 
-/* provisoire */
 img {
     width: 200px;
     height: 150px;
@@ -62,10 +73,17 @@ img {
     margin: 10px;
 }
 
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background: #f2f2f2;    
+}
+
 @media screen and (min-width: 580px) {
     .menu {
         display: block;
     }
+
 }
 
 @media screen and (min-width: 770px) {
@@ -73,10 +91,12 @@ img {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
+
 }
 
 @media screen and (min-width: 990px) {
     .contenu {
         grid-template-columns: 1fr 1fr 1fr;
     }
+
 }

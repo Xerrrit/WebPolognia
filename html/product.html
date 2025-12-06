@@ -10,11 +10,66 @@
 
     <body>
         <div id="header-placeholder"></div>
-        <main></main>
+
+        <main>
+            <section id="product-detail-container" class="product-page">
+                <p>Chargement des détails du produit...</p>
+            </section>
+        </main>
+
         <div id="footer-placeholder"></div>
-
-
+        
+        
         <script>
+            function getProductIdFromUrl() {
+                const params = new URLSearchParams(window.location.search);
+                return params.get('id') || '1';
+            }
+            
+            const productId = getProductIdFromUrl();
+            const apiURL = `http://localhost:4000/products/${productId}`;
+
+            fetch(apiURL)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Erreur HTTP: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(product => {
+                    const container = document.getElementById("product-detail-container");
+                    document.title = `Détails du Produit | ${product.name}`;
+                    container.innerHTML = `
+                    <div class="product-header">
+                        <img src="${product.image}" alt="${product.name}" class="product-image">
+                        <div class="product-summary">
+                            <h1>${product.name}</h1>
+                            <p class="product-price">${product.price}€</p>
+
+                            <div class="stock-status">
+                                ${product.stock > 0 ? `<span class="in-stock">En Stock (${product.stock})</span>` : `<span class="out-of-stock">Rupture de Stock</span>`}
+                            </div>
+
+                            <button class="add-to-cart-btn" ${product.stock === 0 ? 'disabled' : ''}>
+                                Ajouter au Panier
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-description-full">
+                        <h2>Description</h2>
+                        <p>${product.description}</p>
+                    </div>
+                `;
+                })
+                .catch(error => {
+                    console.error("ERREUR lors du chargement du produit:", error);
+                    document.getElementById("product-detail-container").innerHTML = `
+                    <p class="error-message">Désolé, impossible de charger les détails de ce produit.</p>
+                `;
+                });
+
+
             fetch('header.html')
                 .then(response => response.text())
                 .then(data => {
