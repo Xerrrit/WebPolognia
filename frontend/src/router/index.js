@@ -27,13 +27,21 @@ const router = createRouter({
   routes
 });
 
+import { authStore } from "../store/auth";
+
 // Protection des routes admin
 router.beforeEach((to, from, next) => {
-  const role = localStorage.getItem("role");
+  const isAuthenticated = authStore.isAuthenticated();
+  const userRole = authStore.role;
 
-  if (to.meta.requiresAdmin && role !== "admin") {
-    return next("/login");
+  if (to.meta.requiresAdmin) {
+    if (!isAuthenticated || userRole !== "admin") {
+      return next("/login");
+    }
   }
+
+  // Optional: redirect to login if user is not authenticated for protected routes (like /cart)
+  // if (to.path === '/cart' && !isAuthenticated) return next('/login');
 
   next();
 });

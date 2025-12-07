@@ -23,8 +23,8 @@ export async function register(req, res) {
   const hash = await bcrypt.hash(password, 10);
 
   await db.query(
-    "INSERT INTO users (nickname, email, password_hash) VALUES (?, ?, ?)",
-    [nickname, email, hash]
+    "INSERT INTO users (nickname, email, password_hash, role) VALUES (?, ?, ?, ?)",
+    [nickname, email, hash, "user"]
   );
 
   res.json({ message: "User created" });
