@@ -18,7 +18,6 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
-
 a:hover {
   color: #535bf2;
 }
@@ -47,11 +46,9 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-
 button:hover {
   border-color: #646cff;
 }
-
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -73,11 +70,9 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
-
   a:hover {
     color: #747bff;
   }
-
   button {
     background-color: #f9f9f9;
   }
@@ -113,8 +108,7 @@ button:focus-visible {
   transition: color 0.2s;
 }
 
-.nav-links a:hover,
-.nav-links a.router-link-active {
+.nav-links a:hover, .nav-links a.router-link-active {
   color: #646cff;
 }
 
@@ -311,8 +305,7 @@ main {
   font-size: 0.8rem;
 }
 
-.admin-controls,
-.user-controls {
+.admin-controls, .user-controls {
   padding: 1rem;
   background: #222;
   display: flex;

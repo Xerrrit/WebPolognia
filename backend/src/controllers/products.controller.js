@@ -4,10 +4,11 @@ import { db } from "../db.js";
 export async function getProducts(req, res) {
   try {
     const [rows] = await db.query("SELECT * FROM products");
+    console.log("PRODUCTS FROM DB:", rows);
     res.json(rows);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Server error" });
+    res.status(500).json({ message: "Error fetching products" });
   }
 }
 

@@ -7,11 +7,6 @@ const products = ref([]);
 const loading = ref(true);
 const error = ref('');
 
-const getImageUrl = (image) => {
-  if (!image) return '/placeholder.png'; 
-  return image.startsWith('http') ? image : `http://localhost:4000${image}`;
-};
-
 async function fetchProducts() {
   try {
     const response = await api.get('/products');
@@ -24,28 +19,27 @@ async function fetchProducts() {
   }
 }
 
-
-async function deleteProduct(id) {
-  if(!confirm("Are you sure you want to delete this product?")) return;
-  
-  try {
-    await api.delete(`/products/${id}`);
-    
-    products.value = products.value.filter(p => p.id !== id);
-  } catch (err) {
-    alert("Failed to delete product");
-    console.error(err);
-  }
+function editProduct(id) {
+    console.log(`Editing product with ID: ${id}`);
 }
 
-function editProduct(id) {
-  alert(`Edit product ${id}\n(Feature to be implemented in Admin Panel)`);
+async function deleteProduct(id) {
+    if (confirm(`Are you sure you want to delete this product ${id}?`)) {
+        try {
+            alert(`Product ${id} deleted successfully (simulated).`);
+            fetchProducts();
+        } catch (err) {
+            error.value = "Failed to delete product";
+            console.error(err);
+        }
+    }
 }
 
 onMounted(() => {
   fetchProducts();
 });
 </script>
+
 
 <template>
   <div class="products-page">
@@ -83,3 +77,63 @@ onMounted(() => {
   </div>
 </template>
 
+<style scoped>
+.products-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-image {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    background: #333;
+    color: #555;
+}
+
+.placeholder-img {
+    font-weight: bold;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.admin-controls, .user-controls {
+    display: flex;
+    gap: 10px;
+    padding: 1rem;
+    margin-top: auto;
+}
+
+
+@media screen and (min-width: 600px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+</style>
