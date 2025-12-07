@@ -11,7 +11,33 @@ main {
     margin-bottom: 20px;
     padding-bottom: 10px;
 }
+/* ========================================================= */
+/* 🆕 STYLES BOUTON REGISTER */
+/* ========================================================= */
 
+.register-btn {
+    /* Style du bouton */
+    background-color: #007bff;
+    /* Couleur principale */
+    color: white;
+    padding: 8px 15px;
+    margin-right: 10px;
+    /* Espace avant la première icône */
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: bold;
+    border: 1px solid #007bff;
+    transition: background-color 0.2s;
+
+    /* Assure l'alignement vertical avec les icônes */
+    align-self: center;
+}
+
+.register-btn:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
 header {
     position: fixed;
     top: 0;
@@ -26,7 +52,7 @@ header {
 header nav {
     display: flex;
     align-items: center;
-    gap: 21%;
+    gap: 15%;
 }
 
 header nav a {
@@ -40,17 +66,25 @@ header nav a img {
 }
 
 h1 {
-    color: black;
     text-align: center;
+    font-size: 2em;
 }
 
 h2 {
-    color: black;
+    font-size: 1.2em;
+    margin: 10px 0;
+    text-align: center;
+}
+
+p {
+    font-size: 1em;
+    line-height: 1.5;
+    text-align: center;
 }
 
 img {
-    width: 200px;
-    height: 150px;
+    width: 150px;
+    height: 120px;
     object-fit: cover;
 }
 
