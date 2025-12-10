@@ -77,6 +77,9 @@ onMounted(() => {
 
 <template>
   <div class="products-page">
+    <div class="banner-container">
+        <img src="/banner_patissier.png" alt="Patissier Banner" class="banner-image" />
+    </div>
     <h1>Our Products</h1>
 
     <div v-if="loading" class="loading">Loading products...</div>
@@ -188,5 +191,21 @@ onMounted(() => {
     .products-grid {
         grid-template-columns: repeat(4, 1fr);
     }
+}
+
+.banner-container {
+    width: 100%;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    display: block;
 }
 </style>
