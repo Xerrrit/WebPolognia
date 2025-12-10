@@ -104,10 +104,14 @@ button:focus-visible {
 }
 
 .nav-logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--color-gold);
-  font-family: 'Playfair Display', serif;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo-img {
+  height: 140px;
+  width: auto;
+  object-fit: contain;
 }
 
 .nav-links {
