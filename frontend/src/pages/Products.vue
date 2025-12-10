@@ -184,4 +184,21 @@ onMounted(() => {
     object-fit: cover;
     display: block;
 }
+
+.product-image {
+    height: 200px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+    background-color: white; 
+    padding: 15px;
+}
+
+.product-actual-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+}
+
 </style>

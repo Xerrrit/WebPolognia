@@ -42,7 +42,7 @@ onMounted(() => {
         <div v-else-if="error" class="error">{{ error }}</div>
         
         <div v-else-if="product" class="product-container">
-            
+
             <div class="product-image">
                 <img 
                     v-if="product.image" 
@@ -85,6 +85,14 @@ onMounted(() => {
     display: flex;
     gap: 30px;
     align-items: flex-start;
+    padding: 20px;
+    border: 5px solid #C5A059;
+    border-radius: 8px;
+    outline: 1px solid #C5A059;
+    outline-offset: -5px;
+    border-color: #F9F7F2;
+    box-shadow: 0 0 0 1px #C5A059;
+    padding: 50px;
 }
 
 .error {
@@ -101,7 +109,11 @@ onMounted(() => {
     text-decoration: none;
     font-size: 1em; 
     text-align: left;
-    display: block;
-    color: cyan;
+    display: inline;
+    transition: color 0.2s;
 }
-</style>    
+
+.back-button:hover {
+    color: #C5A059;
+}
+</style>
