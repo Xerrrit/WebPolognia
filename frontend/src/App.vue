@@ -26,7 +26,7 @@ function handleLogout() {
       <button @click="openCart" class="cart-btn">🛒</button>
 
       <div v-if="authStore.isAuthenticated()" class="auth-menu">
-        <span>Hello, {{ authStore.user?.nickname || 'User' }}</span>
+        <span class="hello">Hello, {{ authStore.user?.nickname || 'User' }}</span>
         <button @click="handleLogout" class="logout-btn">Logout</button>
       </div>
 
@@ -43,3 +43,12 @@ function handleLogout() {
 
   <CartSlideOver />
 </template>
+
+<style scoped>
+.hello {
+  color: #C5A059;
+}
+.auth-links a{
+  margin: 10px;
+}
+</style>
