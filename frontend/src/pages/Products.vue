@@ -134,46 +134,12 @@ onMounted(() => {
     padding: 2rem 0;
 }
 
-.product-card {
-    display: flex;
-    flex-direction: column;
-}
-
-.product-image {
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-    background: #333;
-    color: #555;
-}
-
-.placeholder-img {
-    font-weight: bold;
-}
-
-.price-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.admin-controls, .user-controls {
-    display: flex;
-    gap: 10px;
-    padding: 1rem;
-    margin-top: auto;
-}
-
 .center-new-product{
   display: flex;
   justify-content: center;
   width: 100%;
   margin-top: 20px;
 }
-
 
 @media screen and (min-width: 600px) {
     .products-grid {
