@@ -4,27 +4,28 @@
     <div class="home-page">
         <section class="hero-section">
             <div class="hero-content">
-                <h1>Bienvenue chez WebPolognia</h1>
-                <p class="tagline">L'authenticité et le style polonais à votre porte. Découvrez notre collection de vêtements traditionnels et modernes.</p>
+                <h1>Welcome to WebPolognia</h1>
+                
+                <p class="tagline">Authenticity and Polish style delivered to your door. Discover our collection of modern and traditional clothing.</p>
             </div>
         </section>
 
         <hr class="section-separator">
 
         <section class="features-section">
-            <h2>L'artisanat polonais au cœur de nos créations</h2>
+            <h2>Polish Craftsmanship at the Heart of Our Creations</h2>
             <div class="features-grid">
                 <div class="feature-item">
-                    <h3>Design Authentique</h3>
-                    <p>Des motifs inspirés du folklore et des traditions régionales de Pologne (Kraków, Kaszuby...).</p>
+                    <h3>Authentic Design</h3>
+                    <p>Patterns inspired by the folklore and regional traditions of Poland (Kraków, Kaszuby...).</p>
                 </div>
                 <div class="feature-item">
-                    <h3>Qualité Européenne</h3>
-                    <p>Vêtements confectionnés avec des matériaux durables et fabriqués localement en Pologne.</p>
+                    <h3>European Quality</h3>
+                    <p>Garments made with durable materials and manufactured locally in Poland.</p>
                 </div>
                 <div class="feature-item">
-                    <h3>Style Moderne</h3>
-                    <p>Un mélange parfait entre l'héritage culturel et les tendances actuelles de la mode urbaine.</p>
+                    <h3>Modern Style</h3>
+                    <p>A perfect blend between cultural heritage and current urban fashion trends.</p>
                 </div>
             </div>
         </section>
@@ -32,8 +33,8 @@
         <hr class="section-separator">
 
         <section class="secondary-info-section">
-            <h2>Trouvez votre style : Traditionnel ou Urbain ?</h2>
-            <p>Explorez nos collections exclusives de t-shirts, pulls et accessoires aux couleurs polonaises.</p>
+            <h2>Find Your Style: Traditional or Urban?</h2>
+            <p>Explore our exclusive collections of t-shirts, sweaters, and accessories in Polish colors.</p>
         </section>
 
     </div>
