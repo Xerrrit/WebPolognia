@@ -104,8 +104,10 @@ button:focus-visible {
 }
 
 .nav-logo {
-  display: flex;
-  align-items: center;
+  height: 40px;   
+  width: auto;    
+  object-fit: contain;
+   transform: translateY(-50px);
 }
 
 .nav-logo-img {
