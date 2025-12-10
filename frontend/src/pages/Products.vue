@@ -28,6 +28,7 @@ function editProduct(id) {
 async function deleteProduct(id) {
     if (confirm(`Are you sure you want to delete this product ${id}?`)) {
         try {
+            await api.delete(`/products/${id}`);
             alert(`Product ${id} deleted successfully (simulated).`);
             fetchProducts();
         } catch (err) {
@@ -82,8 +83,13 @@ onMounted(() => {
                 Add to Cart
             </button>
         </div>
-      </div>
+      </div> 
     </div>
+  <div v-if="authStore.isAdmin()" class="center-new-product">
+     <router-link to="/newProduct">
+    <button class="new-product-btn">Add a new product</button>
+  </router-link>
+  </div>  
   </div>
 </template>
 
@@ -126,6 +132,13 @@ onMounted(() => {
     gap: 10px;
     padding: 1rem;
     margin-top: auto;
+}
+
+.center-new-product{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
 }
 
 
