@@ -22,6 +22,7 @@ async function fetchProducts() {
 }
 
 function editProduct(id) {
+  
     console.log(`Editing product with ID: ${id}`);
 }
 
@@ -72,16 +73,20 @@ onMounted(() => {
         </div>
 
         <div v-if="authStore.isAdmin()" class="admin-controls">
-           <button @click="editProduct(product.id)" class="edit-btn">Edit</button>
+          <router-link :to="`/editProduct/${product.id}`">
+          <button class="edit-btn">Edit</button>
+          </router-link>
            <button @click="deleteProduct(product.id)" class="delete-btn">Delete</button>
         </div>
         <div v-else class="user-controls">
+          <router-link :to="`/cart`">
             <button 
                 class="add-to-cart-btn" 
                 @click="addToCartHandler(product.id)" 
                 :disabled="product.stock === 0" >
                 Add to Cart
             </button>
+          </router-link>           
         </div>
       </div> 
     </div>
