@@ -39,8 +39,35 @@ async function deleteProduct(id) {
     }
 }
 
-function addToCartHandler(productId) {
-    cartStore.addToCart(productId);
+async function addToCartHandler(product_id) {
+  try {
+    const token = authStore.token;
+
+    if (!token) {
+      alert("You must be logged in to add items to the cart.");
+      return;
+    }
+
+    const response = await api.post(
+      "/cart/add",
+      {
+        product_id: product_id,   
+        quantity: 1
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    console.log("Cart response:", response.data);
+    alert("Product added to cart!");
+
+  } catch (error) {
+    console.error("Error adding to cart:", error);
+    alert("Could not add product to cart");
+  }
 }
 onMounted(() => {
   fetchProducts();
@@ -79,14 +106,12 @@ onMounted(() => {
            <button @click="deleteProduct(product.id)" class="delete-btn">Delete</button>
         </div>
         <div v-else class="user-controls">
-          <router-link :to="`/cart`">
             <button 
                 class="add-to-cart-btn" 
                 @click="addToCartHandler(product.id)" 
                 :disabled="product.stock === 0" >
                 Add to Cart
-            </button>
-          </router-link>           
+            </button>          
         </div>
       </div> 
     </div>
