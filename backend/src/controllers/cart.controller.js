@@ -70,8 +70,43 @@ export async function removeFromCart(req, res) {
     );
 
     res.json({ message: "Removed from cart" });
-  } catch (err) {
-    console.error(err);
+  } catch {
+    res.status(500).json({ message: "Server error" });
+  }
+}
+
+export async function updateQuantity(req, res) {
+  try {
+    const userId = req.user.id;
+    const product_id = req.body.product_id;
+    const quantity = req.body.quantity;
+
+    if (!product_id || quantity == null) {
+      return res.status(400).json({ message: "Missing fields" });
+    }
+
+    await db.query(
+      "UPDATE cart SET quantity = ? WHERE user_id = ? AND product_id = ?",
+      [quantity, userId, product_id]
+    );
+
+    res.json({ message: "Quantity updated" });
+  } catch {
+    res.status(500).json({ message: "Server error" });
+  }
+}
+
+export async function clearCart(req, res) {
+  try {
+    const userId = req.user.id;
+
+    await db.query(
+      "DELETE FROM cart WHERE user_id = ?",
+      [userId]
+    );
+
+    res.json({ message: "Cart cleared" });
+  } catch {
     res.status(500).json({ message: "Server error" });
   }
 }

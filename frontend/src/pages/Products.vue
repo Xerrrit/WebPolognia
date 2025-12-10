@@ -2,10 +2,12 @@
 import { ref, onMounted } from 'vue';
 import api from '../api/axios';
 import { authStore } from '../store/auth';
+import { useCartStore } from '../store/cart';
 
 const products = ref([]);
 const loading = ref(true);
 const error = ref('');
+const cartStore = useCartStore();
 
 async function fetchProducts() {
   try {
@@ -35,6 +37,9 @@ async function deleteProduct(id) {
     }
 }
 
+function addToCartHandler(productId) {
+    cartStore.addToCart(productId);
+}
 onMounted(() => {
   fetchProducts();
 });
@@ -70,7 +75,12 @@ onMounted(() => {
            <button @click="deleteProduct(product.id)" class="delete-btn">Delete</button>
         </div>
         <div v-else class="user-controls">
-             <button class="add-to-cart-btn">Add to Cart</button>
+            <button 
+                class="add-to-cart-btn" 
+                @click="addToCartHandler(product.id)" 
+                :disabled="product.stock === 0" >
+                Add to Cart
+            </button>
         </div>
       </div>
     </div>
