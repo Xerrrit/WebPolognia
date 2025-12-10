@@ -10,10 +10,10 @@
             </div>
             <div class="hero-overlay">
                 <div class="hero-text">
-                    <img src="/logo_patissier.png" alt="Patissier" class="hero-logo" />
+                    <h1>Patissier</h1>
                     <p class="subtitle">Découvrez notre collection raffinée.</p>
                     <router-link to="/products">
-                        <button class="cta-button">Voir les Produits</button>
+                        <button class="cta-button">products</button>
                     </router-link>
                 </div>
             </div>
@@ -90,11 +90,12 @@
     max-width: 500px;
 }
 
-.hero-logo {
-    max-width: 250px;
-    height: auto;
-    margin-bottom: 15px;
-    display: block;
+.hero-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #3E3E3E;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
 }
 
 .hero-text .subtitle {
@@ -210,16 +211,12 @@
         width: 100%;
         max-width: 100%;
         margin-top: -20px; 
+        
         background: #fff;
     }
     
-    .hero-logo {
-        max-width: 200px;
-        margin: 0 auto 15px auto;
-    }
-
-    .hero-text {
-        text-align: center;
+    .hero-text h1 {
+        font-size: 2rem;
     }
     
     .values-section {

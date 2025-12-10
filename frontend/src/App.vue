@@ -16,7 +16,9 @@ function handleLogout() {
 
 <template>
   <nav class="navbar">
-    <router-link to="/" class="nav-logo">Patissier</router-link>
+    <router-link to="/" class="nav-logo">
+      <img src="/nav_logo.png" alt="Patissier" class="nav-logo-img" />
+    </router-link>
 
     <div class="nav-links">
       <router-link to="/products">Products</router-link>
