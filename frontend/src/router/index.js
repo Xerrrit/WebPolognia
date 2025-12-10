@@ -6,7 +6,7 @@ import Register from "../pages/Register.vue";
 import Products from "../pages/Products.vue";
 import ProductPage from "../pages/ProductPage.vue";
 import Cart from "../pages/Cart.vue";
-import AdminPanel from "../pages/AdminPanel.vue";
+import AdminPanel from "../pages/NewProduct.vue";
 
 const routes = [
   { path: "/", component: Home },
@@ -16,7 +16,7 @@ const routes = [
   { path: "/products/:id", component: ProductPage },
   { path: "/cart", component: Cart },
   {
-    path: "/admin",
+    path: "/newProduct",
     component: AdminPanel,
     meta: { requiresAdmin: true }
   }
