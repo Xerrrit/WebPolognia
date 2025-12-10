@@ -4,44 +4,42 @@ const { cart, loading, visible, closeCart, removeItem } = useCart();
 </script>
 
 <template>
-  <!-- FOND TRANSPARENT POUR FERMETURE -->
   <div 
     v-if="visible" 
     class="overlay" 
     @click.self="closeCart"
   ></div>
 
-  <!-- SLIDER -->
   <div 
     class="slider" 
     :class="{ open: visible }"
   >
     <div class="header">
-      <h2>Votre panier</h2>
+      <h2>Your Cart</h2>
       <button @click="closeCart" class="close-btn">✖</button>
     </div>
 
     <div v-if="loading" class="loading">
-      Chargement...
+      Loading...
     </div>
 
     <div v-else>
       <div v-if="cart.length === 0" class="empty">
-        Votre panier est vide.
+        Your cart is empty.
       </div>
 
       <div v-for="item in cart" :key="item.id" class="cart-item">
         <div class="item-info">
           <h3>{{ item.name }}</h3>
-          <p>Quantité : {{ item.quantity }}</p>
-          <p>Prix : {{ item.price }} €</p>
+          <p>Quantity: {{ item.quantity }}</p>
+          <p>Price: {{ item.price }} €</p>
         </div>
 
         <button 
           class="remove-btn"
           @click="removeItem(item.id)"
         >
-          Supprimer
+          Remove
         </button>
       </div>
     </div>
@@ -58,12 +56,13 @@ const { cart, loading, visible, closeCart, removeItem } = useCart();
 }
 
 .slider {
+  color: #1A1A1A;
   position: fixed;
   right: 0;
   top: 0;
   width: 320px;
   height: 100%;
-  background: white;
+  background: #F9F7F2;
   box-shadow: -2px 0 10px rgba(0,0,0,0.2);
   transform: translateX(100%);
   transition: transform 0.3s ease;

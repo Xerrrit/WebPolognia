@@ -2,7 +2,7 @@
 import { authStore } from './store/auth';
 import { useRouter } from 'vue-router';
 import { useCart } from './composables/useCart';
-import CartSlideOver from "./components/CartSlideOver.vue";   // 👈 OBLIGATOIRE
+import CartSlideOver from "./components/CartSlideOver.vue";  
 
 const { openCart } = useCart();
 const router = useRouter();
@@ -22,8 +22,6 @@ function handleLogout() {
       <router-link to="/products">Products</router-link>
 
       <button @click="openCart" class="cart-btn">🛒</button>
-
-      <router-link v-if="authStore.isAdmin()" to="/admin">Admin</router-link>
 
       <div v-if="authStore.isAuthenticated()" class="auth-menu">
         <span>Hello, {{ authStore.user?.nickname || 'User' }}</span>
