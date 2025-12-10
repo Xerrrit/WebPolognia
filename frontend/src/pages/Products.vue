@@ -56,12 +56,22 @@ onMounted(() => {
     <div v-else class="products-grid">
       <div v-for="product in products" :key="product.id" class="product-card">
         <div class="product-image">
-            <span class="placeholder-img">{{ product.name.charAt(0) }}</span>
+            <img 
+                v-if="product.image" 
+                :src="product.image" 
+                :alt="product.name" 
+                class="product-actual-image"
+            />
             
+            <span v-else class="placeholder-img">{{ product.name.charAt(0) }}</span>
         </div>
         
         <div class="product-info">
-          <h3>{{ product.name }}</h3>
+          <h3>
+        <router-link :to="`/products/${product.id}`" class="product-name-link">
+            {{ product.name }}
+        </router-link>
+        </h3>
           <p class="description">{{ product.description || 'No description available' }}</p>
           <div class="price-row">
             <span class="price">${{ product.price }}</span>
@@ -101,13 +111,19 @@ onMounted(() => {
 }
 
 .product-image {
-    height: 200px;
+    height: 200px; 
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 4rem;
-    background: #333;
-    color: #555;
+    overflow: hidden; 
+    background-color: white; 
+    padding: 15px;
+}
+
+.product-actual-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
 }
 
 .placeholder-img {
