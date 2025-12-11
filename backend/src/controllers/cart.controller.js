@@ -1,17 +1,22 @@
 import { db } from "../db.js";
 
-// GET /cart → voir le panier du user connecté
 export async function getCart(req, res) {
   try {
     const userId = req.user.id;
 
-    const [rows] = await db.query(
-      `SELECT c.id, c.quantity, p.name, p.price, p.image
-       FROM cart c
-       JOIN products p ON c.product_id = p.id
-       WHERE c.user_id = ?`,
-      [userId]
-    );
+  const [rows] = await db.query(
+    `SELECT 
+        c.id,
+        c.product_id,      
+        c.quantity,
+        p.name,
+        p.price,
+        p.image
+      FROM cart c
+      JOIN products p ON c.product_id = p.id
+      WHERE c.user_id = ?`,
+    [userId]
+  );
 
     res.json(rows);
   } catch (err) {
@@ -20,7 +25,6 @@ export async function getCart(req, res) {
   }
 }
 
-// POST /cart/add → ajouter au panier
 export async function addToCart(req, res) {
   try {
     const userId = req.user.id;
@@ -35,7 +39,6 @@ export async function addToCart(req, res) {
       [userId, product_id]
     );
 
-    // Si déjà dans le panier → augmenter la quantité
     if (existing.length > 0) {
       await db.query(
         "UPDATE cart SET quantity = quantity + ? WHERE user_id = ? AND product_id = ?",
@@ -45,7 +48,6 @@ export async function addToCart(req, res) {
       return res.json({ message: "Quantity updated" });
     }
 
-    // Sinon → nouvel item
     await db.query(
       "INSERT INTO cart (user_id, product_id, quantity) VALUES (?, ?, ?)",
       [userId, product_id, quantity || 1]
@@ -58,7 +60,6 @@ export async function addToCart(req, res) {
   }
 }
 
-// DELETE /cart/:id → enlever une ligne du panier
 export async function removeFromCart(req, res) {
   try {
     const userId = req.user.id;

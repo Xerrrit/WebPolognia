@@ -43,12 +43,3 @@ function handleLogout() {
 
   <CartSlideOver />
 </template>
-
-<style scoped>
-.hello {
-  color: #C5A059;
-}
-.auth-links a{
-  margin: 10px;
-}
-</style>

@@ -17,8 +17,8 @@
       >
         <div class="item-info">
           <h3>{{ item.name }}</h3>
-          <p>Quantité : {{ item.quantity }}</p>
-          <p>Prix : {{ item.price }} €</p>
+          <p>quantity : {{ item.quantity }}</p>
+          <p>Price : {{ item.price }} €</p>
         </div>
 
         <button 
