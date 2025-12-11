@@ -103,11 +103,12 @@ onMounted(() => {
         </div>
 
         <!-- PRODUCT INFO -->
+        <router-link :to="`/products/${product.id}`" class="product-name-link">
         <div class="product-info">
           <h3>
-            <router-link :to="`/products/${product.id}`" class="product-name-link">
+            
               {{ product.name }}
-            </router-link>
+            
           </h3>
 
           <p class="description">
@@ -120,6 +121,8 @@ onMounted(() => {
             <span v-else class="out-of-stock">Out of Stock</span>
           </div>
         </div>
+        </router-link>
+        
 
         <!-- ADMIN ACTIONS -->
         <div v-if="authStore.isAdmin()" class="admin-controls">
