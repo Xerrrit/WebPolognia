@@ -7,6 +7,8 @@ import Products from "../pages/Products.vue";
 import ProductPage from "../pages/ProductPage.vue";
 import Cart from "../pages/Cart.vue";
 import AdminPanel from "../pages/NewProduct.vue";
+import EditProduct from "../pages/EditProduct.vue";
+
 
 const routes = [
   { path: "/", component: Home },
@@ -19,6 +21,11 @@ const routes = [
     path: "/newProduct",
     component: AdminPanel,
     meta: { requiresAdmin: true }
+  },
+  {
+    path:"/editProduct/:id",
+    component: EditProduct,
+    meta: {requiresAdmin: true}
   }
 ];
 
